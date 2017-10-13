@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable} from "@angular/core";
 
-let instance = null;
+let instance : GlobalEvents = null;
 
 export class GlobalEvents {
 

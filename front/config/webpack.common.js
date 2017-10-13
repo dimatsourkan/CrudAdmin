@@ -103,9 +103,9 @@ module.exports = (env = {}) => {
                 'window.jQuery': 'jquery'
             }),
 
-            // new webpack.DefinePlugin({
-            //     "require.specified": "require.resolve"
-            // }),
+            new webpack.DefinePlugin({
+                "require.specified": "require.resolve"
+            }),
 
             new CopyWebpackPlugin([
                 {
