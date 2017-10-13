@@ -92,8 +92,8 @@ module.exports = (env = {}) => {
             ...(env.aot? [new AotPlugin({
                 tsConfigPath: helpers.root('tsconfig.aot.json'),
                 entryModule: helpers.root('src/App/app.module#AppModule'),
-                // skipCodeGeneration: true,
-                // typeChecking: false
+                skipCodeGeneration: true,
+                typeChecking: false
             })]: []),
 
             new webpack.ProvidePlugin({

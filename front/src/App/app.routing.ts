@@ -1,4 +1,3 @@
-let helpers = require('./../../config/helpers');
 import { RouterModule, Routes } from '@angular/router';
 import { WrapperComponent } from "./Components/Wrapper/wrapper.component";
 
@@ -6,12 +5,12 @@ const routes: Routes = [
 
     {
         path: 'auth',
-        loadChildren: helpers.root('AppModules/AppAuthorization/AppAuthorization.module.ts#AppAuthorizationModule')
+        loadChildren: './AppModules/AppAuthorization/AppAuthorization.module.ts#AppAuthorizationModule'
     },
 
     {
         path: 'error',
-        loadChildren: helpers.root('AppModules/Errors/Errors.module.ts#ErrorsModule')
+        loadChildren: './AppModules/Errors/Errors.module.ts#ErrorsModule'
     },
 
     {
@@ -20,7 +19,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'users',
-                loadChildren: helpers.root('AppModules/UsersCrud/UsersCrud.module.ts#UsersCrudModule')
+                loadChildren: './AppModules/UsersCrud/UsersCrud.module.ts#UsersCrudModule'
             }
         ]
     },
