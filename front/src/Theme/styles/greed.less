@@ -1,0 +1,89 @@
+.flex {
+    display: flex !important;
+}
+
+/**
+Flex direction
+*/
+
+.flex-direction-row{
+    flex-direction: row;
+}
+.flex-direction-column{
+    flex-direction: column;
+}
+
+/**
+Justify content
+ */
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-space-around {
+    justify-content: space-around;
+}
+
+.justify-content-flex-end {
+    justify-content: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+/**
+Align items
+ */
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-flex-end {
+    align-items: flex-end;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+}
+
+/*
+ Flex wrap
+*/
+
+.flex-wrap-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-wrap-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.flex-wrap-nowrap {
+    flex-wrap: nowrap;
+}
+
+
+/**
+Flex items
+ */
+.flex-greed(@list, @type){
+
+    .flex-greed-loop(@i: length(@list)) when(@i > 0){
+
+        .flex-greed-loop(@i - 1);
+        @size: extract(@list, @i);
+        &-@{size}{ @{type}: @size; }
+
+    }
+
+    .flex-greed-loop();
+
+}
+
+.flex-item {
+    flex: 1;
+
+    @greedList: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+    .flex-greed(@greedList, flex);
+}

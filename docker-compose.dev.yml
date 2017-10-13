@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  front:
+    container_name: bid4ask-front-dev
+    extends:
+      file: docker-compose.yml
+      service: front
+    build:
+      args:
+        - API_DOMAIN=bid4ask-back.php-cd.attractgroup.com
+        - SOCKET_DOMAIN=bid4ask-back.php-cd.attractgroup.com:6001
+        - VIRTUAL_HOST=bid4ask.php-cd.attractgroup.com
+        - NPM_INSTALL=true
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+    env_file: .env.dev
+    environment:
+      - VIRTUAL_HOST=bid4ask.php-cd.attractgroup.com
+      - VIRTUAL_PORT=80
+    volumes:
+      - /home/fileserver/crmv3-front/logs/front:/var/log/nginx

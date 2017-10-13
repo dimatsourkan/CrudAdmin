@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    network_mode: "bridge"

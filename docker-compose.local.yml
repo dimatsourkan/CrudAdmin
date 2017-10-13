@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  front-dev:
+    extends:
+      file: docker-compose.yml
+      service: front
+    build:
+      args:
+        - API_DOMAIN=bid4ask-back.php-cd.attractgroup.com
+        - SOCKET_DOMAIN=bid4ask-back.php-cd.attractgroup.com:6001
+        - VIRTUAL_HOST=bid4ask.local
+    command: npm start
+    container_name: bid4ask-front-local
+    env_file: .env.local
+    environment:
+      - VIRTUAL_HOST=bid4ask.local
+      - VIRTUAL_PORT=80
+    volumes:
+      - ./front:/app
+      - /home/fileserver/bid4ask-front/logs/bid4ask-dev:/var/log/nginx
+  npm:
+    extends:
+      file: docker-compose.yml
+      service: front
+    command: npm install
+    volumes_from:
+      - front-dev
+    depends_on:
+      - front-dev

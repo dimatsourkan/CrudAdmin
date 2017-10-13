@@ -1,0 +1,158 @@
+{
+    "header" : {
+        "charts" : {
+            "name" : "Charts",
+            "price" : "Price volume",
+            "trade" : "Trade monitor",
+            "recovering" : "Password recovering"
+        },
+        "drop" : {
+            "profile" : "Profile",
+            "logout" : "Logout"
+        }
+    },
+    "notification" : {
+        "non" : "You do not have any notifications",
+        "grown" : "The value of your portfolio has grown by",
+        "fell" : "The value of your portfolio fell on"
+    },
+    "aside" : {
+        "logo" : "Bid4Ask",
+        "small-logo" : "B4"
+    },
+    "currency" : {
+        "pair" : "Currency pair",
+        "save" : "Save"
+    },
+    "auth" : {
+        "titles" : {
+            "login" : "Log In",
+            "signup" : "Sign Up",
+            "recovering" : "Password recovering"
+        },
+        "splash" : {
+            "title" : "BID4ASK",
+            "text" : "is the world's largest and most advanced crypto currency portfolio platform"
+        },
+        "check-email" : "Check email",
+        "forgot" : "Forgot password?",
+        "invalid" : "Invalid credentials",
+        "invalid-token" : "Invalid token",
+        "terms" : "I agree with Terms and Conditions",
+        "fields" : {
+            "name" : "Name",
+            "email" : "Email address",
+            "pass" : "Password",
+            "confirm-pass" : "Confirm password",
+            "new-pass" : "Enter new password",
+            "confirm-new-pass" : "Confirm new password"
+        },
+        "registration" : {
+            "btn" : "Get started",
+            "confirm" : "Confirmation of registration",
+            "success-1" : "We have sent e-mail",
+            "success-2" : "After receiving email follow the link provided to complete you registration"
+        },
+        "recover" : {
+            "text" : "Enter your email to recover your password. You will receive an email with instructions.",
+            "success" : "An e-mail with instructions to create a new password has been sent to you",
+            "btn" : "Recover password"
+        }
+    },
+    "average" : {
+        "title" : "Average buy price",
+        "error" : "You have no any avg"
+    },
+    "change" : {
+        "title" : "Change",
+        "error" : "You have no any changes"
+    },
+    "you-have" : {
+        "title" : "You have",
+        "error" : "You have no any"
+    },
+    "margin" : {
+        "title" : "Operations Margin",
+        "table" : {
+            "start" : "From start",
+            "day" : "24h",
+            "week" : "Week",
+            "month" : "Month"
+        }
+    },
+    "volume" : {
+        "title" : "Operations Volume",
+        "table" : {
+            "start" : "From start",
+            "day" : "24h",
+            "week" : "Week",
+            "month" : "Month"
+        }
+    },
+    "dashboard" : {
+        "price" : "XPR"
+    },
+    "settings" : {
+        "title" : "Personal info",
+        "success" : "Profile data saved successfully",
+        "btn" : "Save",
+        "fields" : {
+            "name" : "Name",
+            "email" : "Email address",
+            "pass" : "Password",
+            "new-pass" : "New password",
+            "confirm-new-pass" : "Confirm new password"
+        }
+    },
+    "api" : {
+        "title" : "Api keys",
+        "add-new" : "Add a new integration",
+        "err" : "You have no any integrations",
+        "table" : {
+            "created" : "Created",
+            "key" : "Api key",
+            "status" : "Status",
+            "secret" : "Secret",
+            "platform" : "your Exchange platform",
+            "delete" : "delete"
+        },
+        "delete" : {
+            "title" : "Are you sure you want to delete this API?",
+            "message" : "delete",
+            "cancel" : "Cancel",
+            "success" : "Delete"
+        },
+        "add" : {
+            "title" : "Add a new integration",
+            "cancel" : "Cancel",
+            "success" : "Save changes",
+            "fields" : {
+                "platform" : "Choose your Exchange platform",
+                "platform-2" : "Exchange platform",
+                "key" : "Api key",
+                "secret" : "Secret"
+            }
+        }
+    },
+    "start" : {
+        "title" : "Getting Started",
+        "text" : "Easy steps to get set up with Bid4Ask",
+        "optional" : "optional",
+        "prev" : "Previous step",
+        "next" : "Next step",
+        "skip" : "Skip this step",
+        "start" : "Start exploring",
+        "step" : "step",
+        "ready" : "READY TO USE BID4ASK?",
+        "step-one" : {
+            "add" : "Add another platform",
+            "platform" : "Choose your Exchange platform",
+            "another-platform" : "Choose your Exchange platform",
+            "key" : "Api key",
+            "secret" : "Secret"
+        },
+        "step-two" : {
+            "currency" : "Choose currency"
+        }
+    }
+}

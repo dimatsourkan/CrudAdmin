@@ -1,0 +1,35 @@
+<crud-list
+    #crudComponent
+    [title]="'Список пользователей'"
+    [pagination]="pagination"
+    (pageChanged)="pageChanged($event)"
+    (onDelete)="deleteModel()">
+
+    <table class="table table-striped table-hover dataTable">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="first_name" >Имя</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="email" >Email</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="phone" >Телефон</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of UserDataService.data">
+                <td><a [routerLink]="['/users', user.id]">#{{ user.id }}</a></td>
+                <td>{{ user.fullName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="openDeletePopup(user)">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <loader #loader></loader>
+
+</crud-list>

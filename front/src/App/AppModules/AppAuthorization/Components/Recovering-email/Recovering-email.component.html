@@ -1,0 +1,36 @@
+<div class="loginColumns animated fadeInDown">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="ibox-content">
+
+                <form class="m-t" [formGroup]="form" (submit)="recovery()"  onsubmit="return false">
+
+                    <div class="form-group">
+                        <label class="required">Email</label>
+                        <input formControlName="email" class="form-control" type="text">
+                        <validation-message
+                            name="Email"
+                            [errors]="form?.controls?.email.errors">
+                        </validation-message>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary block full-width m-b">Send email</button>
+
+                    <a [routerLink]="[ '/auth', 'login' ]">
+                        <small>I remembered the password</small>
+                    </a>
+
+                </form>
+
+                <loader #loader></loader>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

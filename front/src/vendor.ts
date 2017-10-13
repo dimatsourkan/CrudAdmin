@@ -1,0 +1,9 @@
+import './Theme/styles/animate.css';
+import './Theme/styles/bootstrap.css';
+import './Theme/styles/style.css';
+import './Theme/styles/dataTable.css';
+import './Theme/font-awesome/less/font-awesome.less';
+import './Theme/styles/preloader.less';
+import './Theme/styles/helpers.less';
+import './Theme/styles/checkbox.less';
+import './Theme/styles/custom-styles.less';
