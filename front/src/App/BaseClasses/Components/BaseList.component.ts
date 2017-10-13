@@ -5,22 +5,17 @@ import {DataService} from "../Services/Data.service";
 import {IPagination, PaginationModel} from "../Models/Pagination.model";
 import {FilterService} from "../Services/Filter.service";
 import {DEFAULT_SORT} from "../../constants";
+import {GlobalEvents} from "../Services/Global.events";
 
 /**
  * Базовый класс для круд компонент
  */
-export abstract class BaseCrudComponent<T extends IModel> implements OnInit, OnChanges {
+export abstract class BaseCrudListComponent<T extends IModel> implements OnInit, OnChanges {
 
     @ViewChild('crudComponent') protected crudComponent: any;
     @ViewChild('loader') protected loader: any;
 
-    private Entity: any;
-
-    /**
-     * Список полученых данных
-     * @type {Array}
-     */
-    data: T[] = [];
+    protected Entity: any;
 
     /**
      * Переменная хранит текущую выбранную модель
@@ -45,10 +40,12 @@ export abstract class BaseCrudComponent<T extends IModel> implements OnInit, OnC
     sortBy : string = DEFAULT_SORT;
 
     /**
-     * Ключ для имени модели, требуется для удаления
+     * Ключ для имени модели, требуется для вывода имени модели при удалении удаления
      * @type {string}
      */
     itemNameKey : string = 'name';
+
+    protected GlobalEvents : GlobalEvents;
 
     /**
      *
@@ -57,32 +54,23 @@ export abstract class BaseCrudComponent<T extends IModel> implements OnInit, OnC
      * @param {DataService<T extends IModel>} DataService - Сервис данных с которым работает класс
      */
     constructor(
-        private entity : any,
+        protected entity           : any,
         protected ComponentService : CRUDService<T>,
-        protected DataService : DataService<T>
+        protected DataService      : DataService<T>
     ) {
         this.Entity = entity;
+        this.GlobalEvents = new GlobalEvents();
     }
 
     ngOnInit() {
 
-        if(this.pagination) {
-            this.pagination.setPagination(this.DataService.pagination);
-            this.setPage(this.DataService.pagination.current_page);
-        }
-
-        this.ComponentService.OnLoadData.subscribe(() => {
-            if (this.loader) this.loader.hide();
-        });
-
+        this.setPagination(this.DataService.pagination);
         this.sortChange(this.DataService.sort);
+
+        this.onLoadData();
     }
 
     ngOnChanges() { }
-
-    protected showLoader() {
-        if (this.loader) this.loader.show();
-    }
 
     protected query() {
         this.showLoader();
@@ -109,11 +97,30 @@ export abstract class BaseCrudComponent<T extends IModel> implements OnInit, OnC
         return this.ComponentService.remove(data);
     }
 
+    /**
+     * Подписывает на событие завершения запросов
+     */
+    protected onLoadData() {
+        this.GlobalEvents.OnRequestEnd.subscribe(() => {
+            if (this.loader) this.loader.hide();
+        });
+    }
+
+    /**
+     * Показывает лоадер
+     */
+    protected showLoader() {
+        if (this.loader) this.loader.show();
+    }
+
+    /**
+     * Устанавливает пагинацию
+     * @param {IPagination} pagination
+     */
     protected setPagination(pagination : IPagination) {
-        if(this.pagination) {
-            this.pagination.setPagination(pagination);
-            this.DataService.pagination.setPagination(pagination);
-        }
+        this.setPage(pagination.current_page);
+        this.pagination.setPagination(pagination);
+        this.DataService.pagination.setPagination(pagination);
     }
 
     /**

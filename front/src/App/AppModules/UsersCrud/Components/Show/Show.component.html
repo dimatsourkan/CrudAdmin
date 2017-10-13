@@ -1,0 +1,30 @@
+<crud-show [title]="'Просмотр пользователя'">
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Registerd</td>
+                <td>{{ DataService?.item?.created_at_mysql }}</td>
+            </tr>
+            <tr>
+                <td>Имя</td>
+                <td>{{ DataService?.item?.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Фамилия</td>
+                <td>{{ DataService?.item?.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ DataService?.item?.email }}</td>
+            </tr>
+            <tr>
+                <td>Телефон</td>
+                <td>{{ DataService?.item?.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <loader #loader></loader>
+
+</crud-show>

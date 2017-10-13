@@ -2,9 +2,9 @@ import {Component, Input, ViewEncapsulation, EventEmitter, Output, ViewChild} fr
 import {IPagination} from "../../../../BaseClasses/Models/Pagination.model";
 
 @Component({
-    selector: 'crud-list',
-    templateUrl: 'List.component.html',
-    styleUrls:['./List.component.less'],
+    selector : 'crud-list',
+    styleUrls : ['./../../CrudPage.component.less', './List.component.less'],
+    templateUrl : './List.component.html',
     encapsulation : ViewEncapsulation.None,
 })
 
@@ -20,6 +20,12 @@ export class CrudListComponent {
      */
     @Input()
     title : string;
+
+    /**
+     * Данные которые будет использовать компонента
+     */
+    @Input()
+    data : any[];
 
     /**
      * Объект пагинации, если его не передать пагинация не будет отображаться

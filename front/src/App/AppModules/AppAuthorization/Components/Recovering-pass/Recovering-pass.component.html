@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required">Password</label>
+                        <label class="required">Новый пароль</label>
                         <input formControlName="password" class="form-control" type="password">
                         <validation-message
                             name="Password"
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="required">Confirm password</label>
+                        <label class="required">Подтвердите пароль</label>
                         <input formControlName="password_confirmation" class="form-control" type="password">
                         <validation-message
                             name="Confirm password"
@@ -39,10 +39,10 @@
                         </validation-message>
                     </div>
 
-                    <button type="submit" class="btn btn-primary block full-width m-b">Recover</button>
+                    <button type="submit" class="btn btn-primary block full-width m-b">Восстановить</button>
 
                     <a [routerLink]="[ '/auth', 'login' ]">
-                        <small>I remembered the password</small>
+                        <small>Вспомнил пароль</small>
                     </a>
 
                 </form>

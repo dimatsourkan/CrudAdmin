@@ -37,8 +37,6 @@ export class CRUDService<T extends IModel> implements ICrud<T> {
      */
     protected crudUrl: string = '';
 
-    public OnLoadData : EventEmitter<any> = new EventEmitter<any>();
-
     /**
      * Инициализация
      * @param url - Строка вида 'user' по которому должен работать круд
@@ -69,7 +67,7 @@ export class CRUDService<T extends IModel> implements ICrud<T> {
     }
 
     /**
-     * Обрадотка ответа от сервера.
+     * Обработка ответа от сервера.
      * Можно преобразовать ответ до того как сервис вернет результат
      * @param res - Результат сервера
      * @returns {any}
@@ -85,13 +83,11 @@ export class CRUDService<T extends IModel> implements ICrud<T> {
 
     setData(res : IResult<T>) {
         if(this.DataService) this.DataService.item = res.data;
-        this.OnLoadData.emit();
         return res;
     }
 
     setDatas(res: IResultList<T>) {
-        if(this.DataService)  this.DataService.data = res.data.data;
-        this.OnLoadData.emit();
+        if(this.DataService) this.DataService.data = res.data.data;
         return res;
     }
 
@@ -107,7 +103,6 @@ export class CRUDService<T extends IModel> implements ICrud<T> {
                 this.DataService.data.slice(i, 1); break;
             }
         }
-        this.OnLoadData.emit();
     }
 
 

@@ -15,4 +15,14 @@ export class DataService<T extends IModel> {
     pagination : PaginationModel = new PaginationModel();
     sort       : string = DEFAULT_SORT;
 
+    getUpdatedItem(item : T, data : any) {
+        for(let i in item) {
+            if(data[i]) {
+                item[i] = data[i];
+            }
+        }
+
+        return item;
+    }
+
 }

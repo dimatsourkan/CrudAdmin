@@ -1,13 +1,13 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
-    selector : 'crud-show',
-    styleUrls : ['./../../CrudPage.component.less', './Show.component.less'],
-    templateUrl : './Show.component.html',
+    selector : 'crud-add-edit',
+    styleUrls : ['./../../CrudPage.component.less', './AddEdit.component.less'],
+    templateUrl : './AddEdit.component.html',
     encapsulation : ViewEncapsulation.None,
 })
 
-export class CrudShowComponent {
+export class CrudAddEditComponent {
 
     /**
      * Заголовок таблицы

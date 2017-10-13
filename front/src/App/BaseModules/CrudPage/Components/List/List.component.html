@@ -4,27 +4,40 @@
 
         <div class="ibox float-e-margins">
 
-            <div class="ibox-title" *ngIf="title">
-                <h5>{{ title }}</h5>
+            <div class="ibox-title relative">
+
+                <h5 *ngIf="title">{{ title }}</h5>
+
+                <div class="ibox-tools">
+                    <success [routerLink]="['add']">Добавить</success>
+                </div>
+
             </div>
 
             <div class="ibox-content crud-table relative">
 
-                <ng-content></ng-content>
+                <div *ngIf="data?.length">
+                    <ng-content></ng-content>
+                    <div class="text-right pagination-component" *ngIf="pagination">
+                        <pagination
+                                [boundaryLinks]="true"
+                                [totalItems]="pagination.total"
+                                [itemsPerPage]="pagination.per_page"
+                                [(ngModel)]="pagination.current_page"
+                                class="pagination-sm"
+                                (pageChanged)="changePage($event)"
+                                previousText="&lsaquo;"
+                                nextText="&rsaquo;"
+                                firstText="&laquo;"
+                                lastText="&raquo;">
+                        </pagination>
+                    </div>
+                </div>
 
-                <div class="text-right pagination-component" *ngIf="pagination">
-                    <pagination
-                        [boundaryLinks]="true"
-                        [totalItems]="pagination.total"
-                        [itemsPerPage]="pagination.per_page"
-                        [(ngModel)]="pagination.current_page"
-                        class="pagination-sm"
-                        (pageChanged)="changePage($event)"
-                        previousText="&lsaquo;"
-                        nextText="&rsaquo;"
-                        firstText="&laquo;"
-                        lastText="&raquo;">
-                    </pagination>
+                <div *ngIf="!data?.length">
+                    <div class="text-center no-data">
+                        нет данных
+                    </div>
                 </div>
 
             </div>
@@ -36,15 +49,15 @@
 
 <modal #deleteModal modalClass="inmodal">
     <modal-header>
-        <h4>Delete?</h4>
+        <h4>Удалить?</h4>
     </modal-header>
 
     <modal-content>
-        Are you sure you want to delete "{{ deleteItemName }}"?
+        Вы уверены что хотите удалить "{{ deleteItemName }}"?
     </modal-content>
 
     <modal-footer>
-        <button class="btn btn-primary" (click)="onDelete.emit()">Delete</button>
-        <button class="btn btn-white" (click)="deleteModal.close()">Cancel</button>
+        <button class="btn btn-primary" (click)="onDelete.emit()">Удалить</button>
+        <button class="btn btn-white" (click)="deleteModal.close()">Отменить</button>
     </modal-footer>
 </modal>

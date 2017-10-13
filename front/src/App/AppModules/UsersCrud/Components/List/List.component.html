@@ -1,5 +1,6 @@
 <crud-list
     #crudComponent
+    [data]="DataService.data"
     [title]="'Список пользователей'"
     [pagination]="pagination"
     (pageChanged)="pageChanged($event)"
@@ -16,15 +17,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of UserDataService.data">
+            <tr *ngFor="let user of DataService.data">
                 <td><a [routerLink]="['/users', user.id]">#{{ user.id }}</a></td>
                 <td>{{ user.fullName }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.phone }}</td>
                 <td>
-                    <button class="btn btn-danger" (click)="openDeletePopup(user)">
-                        <i class="fa fa-times"></i>
-                    </button>
+                    <show [routerLink]="['/users', user.id]"></show>
+                    <edit [routerLink]="['/users', user.id, 'edit']"></edit>
+                    <delete (click)="openDeletePopup(user)"></delete>
                 </td>
             </tr>
         </tbody>
