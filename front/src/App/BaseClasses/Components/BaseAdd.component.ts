@@ -6,7 +6,7 @@ import {FormGroup} from "@angular/forms";
 import {ValidatorService} from "../../BaseModules/Validation/Validation.service";
 
 /**
- * Базовый класс для редактирования
+ * Базовый класс для добавления
  */
 export abstract class BaseCrudAddComponent<T extends IModel> extends BaseCrudListComponent<T> {
 

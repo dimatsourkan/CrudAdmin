@@ -2,23 +2,31 @@
 
     <form [formGroup]="form" (submit)="submit()" onsubmit="return false">
 
-        <table class="table" [ngClass]="{'edit-table' : id, 'add-table' : !id }">
+        <table class="table">
             <tbody>
                 <tr>
                     <td>Имя</td>
-                    <td><input-text [form]="form" [formControlName]="'first_name'"></input-text></td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'first_name'"></input-text>
+                    </td>
                 </tr>
                 <tr>
                     <td>Фамилия</td>
-                    <td><input-text [form]="form" [formControlName]="'last_name'"></input-text></td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'last_name'"></input-text>
+                    </td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><input-text [form]="form" [formControlName]="'email'"></input-text></td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'email'"></input-text>
+                    </td>
                 </tr>
                 <tr>
                     <td>Телефон</td>
-                    <td><input-text [form]="form" [formControlName]="'phone'"></input-text></td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'phone'"></input-text>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
