@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'edit',
+    selector: 'btn-edit',
     templateUrl: './Edit.component.html',
     styleUrls:['./Edit.component.less'],
 })

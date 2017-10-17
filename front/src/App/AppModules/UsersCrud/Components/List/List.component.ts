@@ -19,5 +19,10 @@ export class ListComponent extends BaseCrudListComponent<IUser> {
         protected DataService : UserDataService
     ) {
         super(User, UserService, DataService);
+        this.filter.searchItems([
+            'first_name',
+            'last_name',
+            'email'
+        ])
     }
 }

@@ -10,6 +10,8 @@ import {SelectChosenDirective} from "./Chosen/Chosen.directive";
 import {InputFileComponent} from "./InputFile/InputFile.component";
 import {CheckboxComponent} from "./Checkbox/Checkbox.component";
 import {RadioComponent} from "./Radiobutton/Radiobutton.component";
+import {DatepickerComponent} from "./Datepicker/Datepicker.component";
+import {DatepickerDirective} from "./Datepicker/Datepicker.directive";
 
 @NgModule({
     imports: [
@@ -18,14 +20,17 @@ import {RadioComponent} from "./Radiobutton/Radiobutton.component";
         ValidationModule
     ],
     declarations: [
+        DatepickerDirective,
+        SelectChosenDirective,
+
         RadioComponent,
         ChosenComponent,
         TextAreaComponent,
         CheckboxComponent,
         InputFileComponent,
         InputTextComponent,
-        InputNumberComponent,
-        SelectChosenDirective
+        DatepickerComponent,
+        InputNumberComponent
     ],
     exports: [
         RadioComponent,
@@ -34,6 +39,7 @@ import {RadioComponent} from "./Radiobutton/Radiobutton.component";
         TextAreaComponent,
         InputFileComponent,
         InputTextComponent,
+        DatepickerComponent,
         InputNumberComponent
     ]
 

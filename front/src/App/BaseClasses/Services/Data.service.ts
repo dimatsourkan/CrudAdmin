@@ -14,6 +14,7 @@ export class DataService<T extends IModel> {
     selected   : T[] = [];
     pagination : PaginationModel = new PaginationModel();
     sort       : string = DEFAULT_SORT;
+    search     : string = null;
 
     getUpdatedItem(item : T, data : any) {
         for(let i in item) {

@@ -16,10 +16,22 @@ export class CrudListComponent {
     private deleteItemName : string;
 
     /**
+     * Хранит данные поиска
+     * @type {string}
+     */
+    searchString : string = '';
+
+    /**
      * Заголовок таблицы
      */
     @Input()
     title : string;
+
+    /**
+     * Показывать поиск или нет
+     */
+    @Input()
+    search : boolean = false;
 
     /**
      * Данные которые будет использовать компонента
@@ -46,6 +58,13 @@ export class CrudListComponent {
      */
     @Output()
     onDelete : EventEmitter<any> = new EventEmitter<any>();
+
+    /**
+     * Событие на изменение состояния пагинатора
+     * @type {EventEmitter<IPagination>}
+     */
+    @Output()
+    onSearch : EventEmitter<string> = new EventEmitter<string>();
 
     /**
      * Объект модалки удаления
@@ -77,6 +96,13 @@ export class CrudListComponent {
             this.pagination.current_page = e.page;
             this.pageChanged.emit();
         }
+    }
+
+    /**
+     * Метод вызывается при изменении поиска
+     */
+    searchChange() {
+        this.onSearch.emit(this.searchString);
     }
 
 }

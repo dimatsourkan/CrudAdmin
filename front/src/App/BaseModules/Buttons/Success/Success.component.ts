@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'success',
+    selector: 'btn-success',
     templateUrl: './Success.component.html',
     styleUrls:['./Success.component.less'],
 })

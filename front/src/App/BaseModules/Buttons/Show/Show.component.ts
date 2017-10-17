@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'show',
+    selector: 'btn-show',
     templateUrl: './Show.component.html',
     styleUrls:['./Show.component.less'],
 })

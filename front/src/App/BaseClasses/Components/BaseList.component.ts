@@ -72,6 +72,12 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
 
     ngOnChanges() { }
 
+    protected changePage(page : number) {
+        this.filter.page(page);
+        this.pagination.current_page = page;
+        this.DataService.pagination.current_page = page;
+    }
+
     protected query() {
         this.showLoader();
         return this.ComponentService.query(this.filter.filter).map(res => this.setPagination(res.data));
@@ -118,7 +124,7 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
      * @param {IPagination} pagination
      */
     protected setPagination(pagination : IPagination) {
-        this.setPage(pagination.current_page);
+        this.filter.page(pagination.current_page);
         this.pagination.setPagination(pagination);
         this.DataService.pagination.setPagination(pagination);
     }
@@ -144,7 +150,7 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
      * Срабатывает при изменении пагинации
      */
     pageChanged() {
-        this.setPage(this.pagination.current_page);
+        this.changePage(this.pagination.current_page);
         this.query().subscribe();
     }
 
@@ -159,11 +165,10 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
         this.query().subscribe();
     }
 
-    /**
-     * Устанавливает текущую страницу для фильтра
-     * @param {number} page
-     */
-    setPage(page : number = 1) {
-        this.filter.page(page);
+    searchChange(search : string) {
+        this.changePage(1);
+        this.filter.search(search);
+        this.DataService.search = search;
+        this.query().subscribe();
     }
 }

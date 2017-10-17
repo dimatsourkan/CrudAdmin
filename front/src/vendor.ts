@@ -8,3 +8,4 @@ import './Theme/styles/preloader.less';
 import './Theme/styles/helpers.less';
 import './Theme/styles/checkbox.less';
 import './Theme/styles/custom-styles.less';
+import './../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css';

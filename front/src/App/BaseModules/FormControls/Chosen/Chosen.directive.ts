@@ -1,7 +1,8 @@
 import {Directive, ElementRef, Input, OnChanges} from "@angular/core";
 import {ControlValueAccessor} from "@angular/forms";
+import * as $ from 'jquery';
 
-require('./../../../../../node_modules/chosen-js/chosen.jquery.min.js');
+require('./../../../../../node_modules/chosen-js/chosen.jquery.js');
 
 @Directive({
     selector : '[chosen]',
@@ -20,7 +21,7 @@ export class SelectChosenDirective implements ControlValueAccessor, OnChanges {
 
     constructor(private el: ElementRef) {
 
-        this.$el = jQuery(el.nativeElement);
+        this.$el = $(el.nativeElement);
 
     }
 

@@ -2,19 +2,30 @@
 
     <div class="col-lg-12">
 
-        <div class="ibox float-e-margins">
+        <div class="ibox ibox-list float-e-margins">
 
             <div class="ibox-title relative">
 
                 <h5 *ngIf="title">{{ title }}</h5>
 
                 <div class="ibox-tools">
-                    <success [routerLink]="['add']">Добавить</success>
+                    <btn-success [routerLink]="['add']">Добавить</btn-success>
                 </div>
 
             </div>
 
             <div class="ibox-content crud-table relative">
+
+                <div class="search" *ngIf="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" [(ngModel)]="searchString">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" (click)="searchChange()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
 
                 <div *ngIf="data?.length">
                     <ng-content></ng-content>
