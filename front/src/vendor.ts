@@ -1,3 +1,4 @@
+import './Theme/styles/plugins/chosen/bootstrap-chosen.css';
 import './Theme/styles/animate.css';
 import './Theme/styles/bootstrap.css';
 import './Theme/styles/style.css';

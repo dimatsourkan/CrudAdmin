@@ -1,0 +1,4 @@
+<textarea class="form-control" (change)="propagateChange($event.target.value)" autosize>{{ value }}</textarea>
+<div *ngIf="form?.controls[formControlName]">
+    <validation-message [errors]="form?.controls[formControlName].errors"></validation-message>
+</div>

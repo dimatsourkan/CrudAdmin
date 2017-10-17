@@ -17,6 +17,7 @@ export class User extends BaseModel implements IUser {
     first_name : string;
     last_name  : string;
     phone      : string;
+    file : any;
 
     constructor(model ?: any) {
         super(model);

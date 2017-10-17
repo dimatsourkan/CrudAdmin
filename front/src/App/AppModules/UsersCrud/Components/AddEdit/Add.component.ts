@@ -23,8 +23,12 @@ export class AddComponent extends BaseCrudAddComponent<IUser> {
             first_name : new FormControl(''),
             last_name  : new FormControl(''),
             phone      : new FormControl(''),
-            email      : new FormControl(''),
+            email      : new FormControl('')
         });
+
+        this.form.valueChanges.subscribe(res => {
+            console.log(res);
+        })
     }
 
 }

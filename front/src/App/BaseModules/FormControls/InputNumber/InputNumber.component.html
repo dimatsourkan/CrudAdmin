@@ -1,0 +1,8 @@
+<input type="text"
+       class="form-control"
+       [value]="value"
+       (change)="propagateChange($event.target.value)"
+       (keypress)="onKeyPress($event)">
+<div *ngIf="form?.controls[formControlName]">
+    <validation-message [errors]="form?.controls[formControlName].errors"></validation-message>
+</div>

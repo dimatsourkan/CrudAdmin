@@ -9,6 +9,11 @@ const routes: Routes = [
     },
 
     {
+        path: 'ui',
+        loadChildren: './AppModules/Ui/Ui.module.ts#UiModule'
+    },
+
+    {
         path: 'error',
         loadChildren: './AppModules/Errors/Errors.module.ts#ErrorsModule'
     },

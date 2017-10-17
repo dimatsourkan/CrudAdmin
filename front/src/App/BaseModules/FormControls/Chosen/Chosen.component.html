@@ -1,0 +1,6 @@
+<select class="form-control" data-placeholder=" " [multiple]="multiple" (change)="propagateChange($event.target.value)" chosen [data]="data">
+    <ng-content></ng-content>
+</select>
+<div *ngIf="form?.controls[formControlName]">
+    <validation-message [errors]="form?.controls[formControlName].errors"></validation-message>
+</div>

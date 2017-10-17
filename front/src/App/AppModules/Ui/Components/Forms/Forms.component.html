@@ -1,0 +1,67 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>Элементы формы</h5>
+    </div>
+    <div class="ibox-content">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Input text</td>
+                    <td>
+                        <input-text></input-text>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Input number</td>
+                    <td>
+                        <input-number></input-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Textarea</td>
+                    <td>
+                        <text-area></text-area>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Select Chosen</td>
+                    <td>
+                        <chosen [data]="[]">
+                            <option value="null">Выберите из списка...</option>
+                            <option value="ad">asdfasdf</option>
+                        </chosen>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Input file</td>
+                    <td>
+                        <input-file></input-file>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checkbox</td>
+                    <td>
+                        <div>
+                            <checkbox [checked]="true"></checkbox>
+                        </div>
+                        <div>
+                            <checkbox>Текст для чекбокса</checkbox>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Checkbox</td>
+                    <td>
+                        <div>
+                            <radio [name]="'name'" [checked]="true"></radio>
+                        </div>
+                        <div>
+                            <radio [name]="'name'">Текст для радиокнопки</radio>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
