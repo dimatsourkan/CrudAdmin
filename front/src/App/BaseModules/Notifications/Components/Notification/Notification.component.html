@@ -1,0 +1,9 @@
+<div class="animated fadeInRight toast toast-{{notification.type}}" style="width: 100%; !important;">
+    <div>
+        <button type="button" class="toast-close-button" role="button" (click)="remove()">×</button>
+        <div class="toast-title" *ngIf="notification?.title">{{ notification?.title }}</div>
+        <div class="toast-message">
+            {{notification?.message}}
+        </div>
+    </div>
+</div>

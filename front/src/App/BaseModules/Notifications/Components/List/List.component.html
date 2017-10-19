@@ -1,0 +1,5 @@
+<div class="toast-container toast-top-right" style="width: 350px">
+    <div *ngFor="let notification of NotificationsService.notificationList;let i = index">
+        <notification [timeout]="notification.time" (onRemove)="remove(i)" [notification]="notification"></notification>
+    </div>
+</div>

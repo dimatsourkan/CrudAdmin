@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {BaseCrudListComponent} from "../../../../BaseClasses/Components/BaseList.component";
-import {IUser, User} from "../../../../BaseModules/User/User.model";
-import {UserService} from "../../../../BaseModules/User/User.service";
-import {UserDataService} from "../../../../BaseModules/User/User.data";
+import {IUser, User} from "../../../../EntityModules/User/User.model";
+import {UserService} from "../../../../EntityModules/User/User.service";
+import {UserDataService} from "../../../../EntityModules/User/User.data";
 
 
 @Component({
@@ -15,8 +15,8 @@ export class ListComponent extends BaseCrudListComponent<IUser> {
     itemNameKey : string = 'fullName';
 
     constructor(
-        protected UserService : UserService,
-        protected DataService : UserDataService
+        public UserService : UserService,
+        public DataService : UserDataService
     ) {
         super(User, UserService, DataService);
         this.filter.searchItems([

@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {UserService} from "./BaseModules/User/User.service";
+import {UserService} from "./EntityModules/User/User.service";
 import {AuthorizationService} from "./BaseModules/Authorization/Authorization.service";
 
 @Component({

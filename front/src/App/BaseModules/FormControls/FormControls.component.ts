@@ -20,7 +20,7 @@ export class FormControlsComponent implements ControlValueAccessor, OnInit {
 
     propagateChange = (_: any) => {};
 
-    registerOnChange(fn) {
+    registerOnChange(fn : any) {
         this.propagateChange = fn;
     }
 

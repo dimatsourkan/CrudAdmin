@@ -6,7 +6,6 @@ let helpers = require('./helpers');
 let AotPlugin =  require('@ngtools/webpack').AotPlugin;
 let autoprefixer       = require('autoprefixer');
 
-
 module.exports = (env = {}) => {
     console.log('env.aot', env.aot);
     console.log("API_DOMAIN", process.env.API_DOMAIN);
@@ -92,8 +91,8 @@ module.exports = (env = {}) => {
             ...(env.aot? [new AotPlugin({
                 tsConfigPath: helpers.root('tsconfig.aot.json'),
                 entryModule: helpers.root('src/App/app.module#AppModule'),
-                skipCodeGeneration: true,
-                typeChecking: false
+                // skipCodeGeneration: true,
+                // typeChecking: false
             })]: []),
 
             new webpack.ProvidePlugin({

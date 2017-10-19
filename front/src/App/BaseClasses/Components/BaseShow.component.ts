@@ -12,10 +12,10 @@ export abstract class BaseCrudShowComponent<T extends IModel> extends BaseCrudLi
     private id : number;
 
     constructor(
-        protected entity           : any,
-        protected ComponentService : CRUDService<T>,
-        protected DataService      : DataService<T>,
-        protected ActivatedRoute   : ActivatedRoute
+        public entity           : any,
+        public ComponentService : CRUDService<T>,
+        public DataService      : DataService<T>,
+        public ActivatedRoute   : ActivatedRoute
     ) {
         super(entity, ComponentService, DataService);
         this.id = this.ActivatedRoute.snapshot.params['id'];

@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {IUser, User} from "../../../../BaseModules/User/User.model";
-import {UserService} from "../../../../BaseModules/User/User.service";
-import {UserDataService} from "../../../../BaseModules/User/User.data";
+import {IUser, User} from "../../../../EntityModules/User/User.model";
+import {UserService} from "../../../../EntityModules/User/User.service";
+import {UserDataService} from "../../../../EntityModules/User/User.data";
 import {ActivatedRoute} from "@angular/router";
 import {BaseCrudEditComponent} from "../../../../BaseClasses/Components/BaseEdit.component";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -15,9 +15,9 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class EditComponent extends BaseCrudEditComponent<IUser> {
 
     constructor(
-        protected UserService      : UserService,
-        protected DataService      : UserDataService,
-        protected ActivatedRoute   : ActivatedRoute
+        public UserService      : UserService,
+        public DataService      : UserDataService,
+        public ActivatedRoute   : ActivatedRoute
     ) {
         super(User, UserService, DataService, ActivatedRoute);
 

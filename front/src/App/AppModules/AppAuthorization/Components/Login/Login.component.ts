@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidatorService } from "../../../../BaseModules/Validation/Validation.service";
 import { AuthorizationService } from "../../../../BaseModules/Authorization/Authorization.service";
+import {UserService} from "../../../../EntityModules/User/User.service";
 
 @Component({
     selector: 'login',
@@ -16,9 +17,10 @@ export class LoginComponent {
     @ViewChild('loader') private loader: any;
 
     constructor(
-        private Router: Router,
-        private ValidatorService: ValidatorService,
-        private AuthorizationService: AuthorizationService
+        private Router : Router,
+        private UserService : UserService,
+        private ValidatorService : ValidatorService,
+        private AuthorizationService : AuthorizationService
     ) {
         this.form = new FormGroup({
             email    : new FormControl(''),
@@ -31,6 +33,7 @@ export class LoginComponent {
 
         this.loader.show();
         this.AuthorizationService.login(this.form.value).subscribe(() => {
+            this.UserService.getProfile().subscribe();
             this.Router.navigate(['users']);
             this.loader.hide();
         }, err => {

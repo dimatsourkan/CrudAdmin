@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthorizationService} from "../../BaseModules/Authorization/Authorization.service";
-import {UserDataService} from "../../BaseModules/User/User.data";
+import {UserDataService} from "../../EntityModules/User/User.data";
 
 @Component({
     selector: 'header',

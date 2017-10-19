@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
-import {IUser, User} from "../../../../BaseModules/User/User.model";
+import {IUser, User} from "../../../../EntityModules/User/User.model";
 import {BaseCrudShowComponent} from "../../../../BaseClasses/Components/BaseShow.component";
-import {UserService} from "../../../../BaseModules/User/User.service";
-import {UserDataService} from "../../../../BaseModules/User/User.data";
+import {UserService} from "../../../../EntityModules/User/User.service";
+import {UserDataService} from "../../../../EntityModules/User/User.data";
 import {ActivatedRoute} from "@angular/router";
 
 
@@ -14,9 +14,9 @@ import {ActivatedRoute} from "@angular/router";
 export class ShowComponent extends BaseCrudShowComponent<IUser> {
 
     constructor(
-        protected UserService      : UserService,
-        protected DataService      : UserDataService,
-        protected ActivatedRoute   : ActivatedRoute
+        public UserService      : UserService,
+        public DataService      : UserDataService,
+        public ActivatedRoute   : ActivatedRoute
     ) {
         super(User, UserService, DataService, ActivatedRoute);
     }

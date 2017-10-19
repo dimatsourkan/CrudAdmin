@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ConnectionBackend, RequestOptions, RequestOptionsArgs, Http, Response, XHRBackend } from '@angular/http';
+import {Injectable} from '@angular/core';
+import { ConnectionBackend, RequestOptions, RequestOptionsArgs, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { TokenService } from '../../BaseClasses/Services/Token.service';
 import 'rxjs/add/operator/map';
 import {GlobalEvents} from "../../BaseClasses/Services/Global.events";
+import {HttpErrorService} from "../HttpError/HttpError.service";
 
 @Injectable()
 export class AppHttpService extends Http {
@@ -13,7 +14,8 @@ export class AppHttpService extends Http {
 
     constructor(
         _backend: ConnectionBackend,
-        _defaultOptions: RequestOptions
+        _defaultOptions: RequestOptions,
+        private HttpErrorService : HttpErrorService
     ) {
         super(_backend, _defaultOptions);
 
@@ -83,6 +85,7 @@ export class AppHttpService extends Http {
     }
 
     private errorHandler(error: Response) {
+        this.HttpErrorService.setError(error);
         this.GlobalEvents.OnRequestEnd.emit(true);
         return Observable.throw(error.json());
     }

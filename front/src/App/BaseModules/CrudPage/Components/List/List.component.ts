@@ -13,7 +13,7 @@ export class CrudListComponent {
     /**
      * Хранит имя для удаляемой модели
      */
-    private deleteItemName : string;
+    deleteItemName : string;
 
     /**
      * Хранит данные поиска

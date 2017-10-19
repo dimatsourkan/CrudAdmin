@@ -15,6 +15,7 @@ import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {AuthorizationModule} from "./BaseModules/Authorization/Authorization.module";
 import {AppAuthorizationModule} from "./AppModules/AppAuthorization/AppAuthorization.module";
+import {NotificationsModule} from "./BaseModules/Notifications/Notifications.module";
 
 export function createTranslateLoader(http: Http) {
     return new TranslateHttpLoader(http, './Lang/', '.json');
@@ -22,6 +23,7 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
     imports: [
+        NotificationsModule,
         DropdownModule,
         BrowserModule,
         LoaderModule,

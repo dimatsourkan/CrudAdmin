@@ -7,7 +7,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {ROUTING} from "./UsersCrud.routing";
 import {AppHttpModule} from "../../BaseModules/Http/Http.module";
 import {ValidationModule} from "../../BaseModules/Validation/Validation.module";
-import {UserModule} from "../../BaseModules/User/User.module";
+import {UserModule} from "../../EntityModules/User/User.module";
 import {ListComponent} from "./Components/List/List.component";
 import {CrudPageModule} from "../../BaseModules/CrudPage/CrudPage.module";
 import {SortingModule} from "../../Directives/Sorting/Sorting.module";

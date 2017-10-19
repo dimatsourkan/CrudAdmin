@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {IUser, User} from "../../../../BaseModules/User/User.model";
-import {UserService} from "../../../../BaseModules/User/User.service";
-import {UserDataService} from "../../../../BaseModules/User/User.data";
+import {IUser, User} from "../../../../EntityModules/User/User.model";
+import {UserService} from "../../../../EntityModules/User/User.service";
+import {UserDataService} from "../../../../EntityModules/User/User.data";
 import {FormControl, FormGroup} from "@angular/forms";
 import {BaseCrudAddComponent} from "../../../../BaseClasses/Components/BaseAdd.component";
 
@@ -14,8 +14,8 @@ import {BaseCrudAddComponent} from "../../../../BaseClasses/Components/BaseAdd.c
 export class AddComponent extends BaseCrudAddComponent<IUser> {
 
     constructor(
-        protected UserService      : UserService,
-        protected DataService      : UserDataService
+        public UserService      : UserService,
+        public DataService      : UserDataService
     ) {
         super(User, UserService, DataService);
 

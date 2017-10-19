@@ -10,14 +10,16 @@ import {ValidatorService} from "../../BaseModules/Validation/Validation.service"
  */
 export abstract class BaseCrudAddComponent<T extends IModel> extends BaseCrudListComponent<T> {
 
+    id : number = null;
+
     form : FormGroup;
 
     ValidatorService : ValidatorService;
 
     constructor(
-        protected entity           : any,
-        protected ComponentService : CRUDService<T>,
-        protected DataService      : DataService<T>
+        public entity           : any,
+        public ComponentService : CRUDService<T>,
+        public DataService      : DataService<T>
     ) {
         super(entity, ComponentService, DataService);
         this.ValidatorService = new ValidatorService();
@@ -30,7 +32,9 @@ export abstract class BaseCrudAddComponent<T extends IModel> extends BaseCrudLis
     submit() {
         let item = new this.Entity(this.form.value);
         this.save(item).subscribe(() => {}, err => {
-            this.ValidatorService.addErrorToForm(this.form, err.errors);
+            if(err.code == 422) {
+                this.ValidatorService.addErrorToForm(this.form, err.errors);
+            }
         });
     }
 

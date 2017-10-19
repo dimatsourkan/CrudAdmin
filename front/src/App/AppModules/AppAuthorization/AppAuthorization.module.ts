@@ -9,7 +9,7 @@ import { LoginComponent } from './Components/Login/Login.component';
 import { RecoveringEmailComponent } from './Components/Recovering-email/Recovering-email.component';
 import { RecoveringPassComponent } from './Components/Recovering-pass/Recovering-pass.component';
 import { LoaderModule } from '../../BaseModules/Loader/Loader.module';
-import { UserModule } from '../../BaseModules/User/User.module';
+import { UserModule } from '../../EntityModules/User/User.module';
 import {TranslateModule} from "@ngx-translate/core";
 import {ROUTING} from "./AppAuthorization.routing";
 

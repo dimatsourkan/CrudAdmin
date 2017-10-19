@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { BASE_URL } from '../../constants';
 import { TokenService } from '../../BaseClasses/Services/Token.service';
 import 'rxjs/add/operator/map';
-import {IUser} from "../User/User.model";
 
 
 @Injectable()

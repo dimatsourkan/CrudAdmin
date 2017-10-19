@@ -54,9 +54,9 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
      * @param {DataService<T extends IModel>} DataService - Сервис данных с которым работает класс
      */
     constructor(
-        protected entity           : any,
-        protected ComponentService : CRUDService<T>,
-        protected DataService      : DataService<T>
+        public entity           : any,
+        public ComponentService : CRUDService<T>,
+        public DataService      : DataService<T>
     ) {
         this.Entity = entity;
         this.GlobalEvents = new GlobalEvents();

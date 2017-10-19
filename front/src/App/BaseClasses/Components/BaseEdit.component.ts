@@ -18,10 +18,10 @@ export abstract class BaseCrudEditComponent<T extends IModel> extends BaseCrudLi
     ValidatorService : ValidatorService;
 
     constructor(
-        protected entity           : any,
-        protected ComponentService : CRUDService<T>,
-        protected DataService      : DataService<T>,
-        protected ActivatedRoute   : ActivatedRoute
+        public entity           : any,
+        public ComponentService : CRUDService<T>,
+        public DataService      : DataService<T>,
+        public ActivatedRoute   : ActivatedRoute
     ) {
         super(entity, ComponentService, DataService);
 
@@ -43,7 +43,9 @@ export abstract class BaseCrudEditComponent<T extends IModel> extends BaseCrudLi
     submit() {
         let item = this.DataService.getUpdatedItem(new this.Entity(this.DataService.item), this.form.value);
         this.update(item).subscribe(() => {}, err => {
-            this.ValidatorService.addErrorToForm(this.form, err.errors);
+            if(err.code == 422) {
+                this.ValidatorService.addErrorToForm(this.form, err.errors);
+            }
         });
     }
 

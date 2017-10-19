@@ -3,7 +3,7 @@
     [data]="DataService.data"
     [title]="'Список пользователей'"
     [pagination]="pagination"
-    (pageChanged)="pageChanged($event)"
+    (pageChanged)="pageChanged()"
     (onDelete)="deleteModel()"
     [search]="true"
     (onSearch)="searchChange($event)">

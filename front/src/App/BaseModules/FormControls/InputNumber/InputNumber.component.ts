@@ -19,7 +19,7 @@ export class InputNumberComponent extends FormControlsComponent {
 
     private Keys : number[] = [8, 13, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
 
-    onKeyPress(target) {
+    onKeyPress(target : any) {
         let key = target.keyCode || target.which;
         if(!this.checkKey(key)) return false;
     }
