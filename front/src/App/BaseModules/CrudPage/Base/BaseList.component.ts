@@ -1,11 +1,12 @@
-import { CRUDService } from '../Services/Crud.service';
-import {IModel} from '../Models/Base.model';
+import { CRUDService } from '../../../BaseClasses/Services/Crud.service';
+import {IModel} from '../../../BaseClasses/Models/Base.model';
 import {OnInit, OnChanges, ViewChild} from "@angular/core";
-import {DataService} from "../Services/Data.service";
-import {IPagination, PaginationModel} from "../Models/Pagination.model";
-import {FilterService} from "../Services/Filter.service";
-import {DEFAULT_SORT} from "../../constants";
-import {GlobalEvents} from "../Services/Global.events";
+import {DataService} from "../../../BaseClasses/Services/Data.service";
+import {IPagination, PaginationModel} from "../../../BaseClasses/Models/Pagination.model";
+import {FilterService} from "../../../BaseClasses/Services/Filter.service";
+import {DEFAULT_SORT} from "../../../constants";
+import {GlobalEvents} from "../../../BaseClasses/Services/Global.events";
+import {IResultList} from "../../../BaseClasses/Models/Result.model";
 
 /**
  * Базовый класс для круд компонент
@@ -65,12 +66,24 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
     ngOnInit() {
 
         this.setPagination(this.DataService.pagination);
+
         this.sortChange(this.DataService.sort);
+
+        this.crudComponentEvents();
 
         this.onLoadData();
     }
 
     ngOnChanges() { }
+
+    /**
+     * События которые отдает компонента CrudList
+     */
+    private crudComponentEvents() {
+        this.crudComponent.onSearch.subscribe((res : string) => this.searchChange(res));
+        this.crudComponent.pageChanged.subscribe(() => this.pageChanged());
+        this.crudComponent.onDelete.subscribe(() => this.deleteModel());
+    }
 
     protected changePage(page : number) {
         this.filter.page(page);
@@ -80,7 +93,11 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
 
     protected query() {
         this.showLoader();
-        return this.ComponentService.query(this.filter.filter).map(res => this.setPagination(res.data));
+        return this.ComponentService.query(this.filter.filter).map((res : IResultList<T>) => {
+            this.crudComponent.data = this.DataService.data;
+            this.setPagination(res.data);
+            return res;
+        });
     }
 
     protected get(id: number) {
@@ -108,7 +125,10 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
      */
     protected onLoadData() {
         this.GlobalEvents.OnRequestEnd.subscribe(() => {
-            if (this.loader) this.loader.hide();
+
+            if (this.loader) {
+                this.loader.hide();
+            }
         });
     }
 
@@ -142,8 +162,11 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
      * Удаляет модель
      */
     deleteModel() {
+        this.showLoader();
         this.crudComponent.hideDelete();
-        this.remove(this.item).subscribe();
+        this.remove(this.item).subscribe(() => {
+            this.query().subscribe();
+        });
     }
 
     /**
@@ -165,6 +188,10 @@ export abstract class BaseCrudListComponent<T extends IModel> implements OnInit,
         this.query().subscribe();
     }
 
+    /**
+     * Срабатывает при изменении поиска
+     * @param {string} search
+     */
     searchChange(search : string) {
         this.changePage(1);
         this.filter.search(search);

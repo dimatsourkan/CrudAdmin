@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidatorService } from "../../../../BaseModules/Validation/Validation.service";
-import { AuthorizationService } from "../../../../BaseModules/Authorization/Authorization.service";
-import {UserService} from "../../../../EntityModules/User/User.service";
+import { ValidatorService } from "../../../../../BaseModules/Validation/Validation.service";
+import { AuthorizationService } from "../../../../../BaseModules/Authorization/Authorization.service";
+import {UserService} from "../../../../../EntityModules/User/User.service";
 
 @Component({
     selector: 'login',

@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {BaseCrudListComponent} from "../../../../BaseClasses/Components/BaseList.component";
+import {BaseCrudListComponent} from "../../../../BaseModules/CrudPage/Base/BaseList.component";
 import {IUser, User} from "../../../../EntityModules/User/User.model";
 import {UserService} from "../../../../EntityModules/User/User.service";
 import {UserDataService} from "../../../../EntityModules/User/User.data";
@@ -15,10 +15,10 @@ export class ListComponent extends BaseCrudListComponent<IUser> {
     itemNameKey : string = 'fullName';
 
     constructor(
-        public UserService : UserService,
+        public CrudService : UserService,
         public DataService : UserDataService
     ) {
-        super(User, UserService, DataService);
+        super(User, CrudService, DataService);
         this.filter.searchItems([
             'first_name',
             'last_name',

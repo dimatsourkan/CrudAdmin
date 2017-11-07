@@ -1,0 +1,40 @@
+<crud-add-edit [title]="id  ? 'Редактировани роли' : 'Добавление роли'">
+
+    <form [formGroup]="form" (submit)="submit()" onsubmit="return false">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Название (EN)</td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'role_label_en'"></input-text>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Название (RU)</td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'role_label_ru'"></input-text>
+                    </td>
+                </tr>
+                <tr>
+                    <td>URI</td>
+                    <td>
+                        <input-text [form]="form" [formControlName]="'role_name'"></input-text>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <btn-success>Сохранить</btn-success>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </form>
+
+    <loader #loader></loader>
+
+</crud-add-edit>

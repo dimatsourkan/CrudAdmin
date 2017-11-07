@@ -5,7 +5,7 @@ var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
 // const ENV  = process.env.NODE_ENV = process.env.ENV = 'development';
-const port = process.env.VIRTUAL_PORT || 8080;
+const port = process.env.VIRTUAL_PORT || 8081;
 const host = process.env.VIRTUAL_HOST || `localhost:${port}`;
 
 module.exports = (env) => {

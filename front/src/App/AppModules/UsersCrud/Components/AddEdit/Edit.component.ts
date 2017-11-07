@@ -3,7 +3,7 @@ import {IUser, User} from "../../../../EntityModules/User/User.model";
 import {UserService} from "../../../../EntityModules/User/User.service";
 import {UserDataService} from "../../../../EntityModules/User/User.data";
 import {ActivatedRoute} from "@angular/router";
-import {BaseCrudEditComponent} from "../../../../BaseClasses/Components/BaseEdit.component";
+import {BaseCrudEditComponent} from "../../../../BaseModules/CrudPage/Base/BaseEdit.component";
 import {FormControl, FormGroup} from "@angular/forms";
 
 
@@ -15,11 +15,11 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class EditComponent extends BaseCrudEditComponent<IUser> {
 
     constructor(
-        public UserService      : UserService,
+        public CrudService      : UserService,
         public DataService      : UserDataService,
         public ActivatedRoute   : ActivatedRoute
     ) {
-        super(User, UserService, DataService, ActivatedRoute);
+        super(User, CrudService, DataService, ActivatedRoute);
 
         this.form = new FormGroup({
             first_name : new FormControl(''),

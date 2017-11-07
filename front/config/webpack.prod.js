@@ -25,7 +25,7 @@ module.exports = (env) => {
                     warnings: true
                 },
                 mangle: {
-                    keep_fnames: true
+                    keep_fnames: false
                 },
                 uglifyOptions : {
 

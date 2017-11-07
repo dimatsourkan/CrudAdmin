@@ -3,7 +3,7 @@ import {IUser, User} from "../../../../EntityModules/User/User.model";
 import {UserService} from "../../../../EntityModules/User/User.service";
 import {UserDataService} from "../../../../EntityModules/User/User.data";
 import {FormControl, FormGroup} from "@angular/forms";
-import {BaseCrudAddComponent} from "../../../../BaseClasses/Components/BaseAdd.component";
+import {BaseCrudAddComponent} from "../../../../BaseModules/CrudPage/Base/BaseAdd.component";
 
 
 @Component({
@@ -14,10 +14,10 @@ import {BaseCrudAddComponent} from "../../../../BaseClasses/Components/BaseAdd.c
 export class AddComponent extends BaseCrudAddComponent<IUser> {
 
     constructor(
-        public UserService      : UserService,
+        public CrudService      : UserService,
         public DataService      : UserDataService
     ) {
-        super(User, UserService, DataService);
+        super(User, CrudService, DataService);
 
         this.form = new FormGroup({
             first_name : new FormControl(''),
@@ -26,9 +26,9 @@ export class AddComponent extends BaseCrudAddComponent<IUser> {
             email      : new FormControl('')
         });
 
-        this.form.valueChanges.subscribe(res => {
-            console.log(res);
-        })
+        // this.form.valueChanges.subscribe(res => {
+        //     console.log(res);
+        // })
     }
 
 }

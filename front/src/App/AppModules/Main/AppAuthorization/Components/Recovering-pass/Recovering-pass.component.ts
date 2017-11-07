@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ValidatorService } from '../../../../BaseModules/Validation/Validation.service';
-import {AuthorizationService} from "../../../../BaseModules/Authorization/Authorization.service";
+import { ValidatorService } from '../../../../../BaseModules/Validation/Validation.service';
+import {AuthorizationService} from "../../../../../BaseModules/Authorization/Authorization.service";
 
 @Component({
     selector: 'recovering-pass',

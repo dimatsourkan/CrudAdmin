@@ -5,17 +5,17 @@ const routes: Routes = [
 
     {
         path: 'auth',
-        loadChildren: './AppModules/AppAuthorization/AppAuthorization.module.ts#AppAuthorizationModule'
+        loadChildren: './AppModules/Main/AppAuthorization/AppAuthorization.module.ts#AppAuthorizationModule'
     },
 
     {
         path: 'ui',
-        loadChildren: './AppModules/Ui/Ui.module.ts#UiModule'
+        loadChildren: './AppModules/Main/Ui/Ui.module.ts#UiModule'
     },
 
     {
         path: 'error',
-        loadChildren: './AppModules/Errors/Errors.module.ts#ErrorsModule'
+        loadChildren: './AppModules/Main/Errors/Errors.module.ts#ErrorsModule'
     },
 
     {
@@ -25,7 +25,12 @@ const routes: Routes = [
             {
                 path: 'users',
                 loadChildren: './AppModules/UsersCrud/UsersCrud.module.ts#UsersCrudModule'
-            }
+            },
+
+            {
+                path: 'roles',
+                loadChildren: './AppModules/RolesCrud/RolesCrud.module.ts#RolesCrudModule'
+            },
         ]
     },
 

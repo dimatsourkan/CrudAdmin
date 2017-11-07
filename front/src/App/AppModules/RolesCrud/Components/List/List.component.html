@@ -1,0 +1,34 @@
+<crud-list
+    #crudComponent
+    [title]="'Список ролей'"
+    [pagination]="pagination"
+    [search]="true">
+
+    <table class="table table-striped table-hover dataTable">
+        <thead>
+            <tr>
+                <th>#ID</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="role_label_en">Название (EN)</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="role_label_ru">Название (RU)</th>
+                <th (change)="sortChange($event)" [(sortBy)]="sortBy" sorting="role_name">URI</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let role of DataService.data">
+                <td><a [routerLink]="['/roles', role.id]">#{{ role.id }}</a></td>
+                <td>{{ role.role_label_en }}</td>
+                <td>{{ role.role_label_ru }}</td>
+                <td>{{ role.role_name }}</td>
+                <td>
+                    <btn-show [routerLink]="['/roles', role.id]"></btn-show>
+                    <btn-edit [routerLink]="['/roles', role.id, 'edit']"></btn-edit>
+                    <btn-delete (click)="openDeletePopup(role)"></btn-delete>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <loader #loader></loader>
+
+</crud-list>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ROUTING } from "./Ui.routing";
 import { FormsComponent } from "./Components/Forms/Forms.component";
-import {FormControlsModule} from "../../BaseModules/FormControls/FormControls.module";
+import {FormControlsModule} from "../../../BaseModules/FormControls/FormControls.module";
 
 @NgModule({
     imports: [

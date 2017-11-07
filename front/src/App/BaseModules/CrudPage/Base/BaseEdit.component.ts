@@ -1,10 +1,10 @@
 import {BaseCrudListComponent} from "./BaseList.component";
-import {IModel} from "../Models/Base.model";
-import {CRUDService} from "../Services/Crud.service";
-import {DataService} from "../Services/Data.service";
+import {IModel} from "../../../BaseClasses/Models/Base.model";
+import {CRUDService} from "../../../BaseClasses/Services/Crud.service";
+import {DataService} from "../../../BaseClasses/Services/Data.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormGroup} from "@angular/forms";
-import {ValidatorService} from "../../BaseModules/Validation/Validation.service";
+import {ValidatorService} from "../../Validation/Validation.service";
 
 /**
  * Базовый класс для редактирования

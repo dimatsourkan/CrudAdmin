@@ -1,7 +1,7 @@
 import {BaseCrudListComponent} from "./BaseList.component";
-import {IModel} from "../Models/Base.model";
-import {CRUDService} from "../Services/Crud.service";
-import {DataService} from "../Services/Data.service";
+import {IModel} from "../../../BaseClasses/Models/Base.model";
+import {CRUDService} from "../../../BaseClasses/Services/Crud.service";
+import {DataService} from "../../../BaseClasses/Services/Data.service";
 import {ActivatedRoute} from "@angular/router";
 
 /**

@@ -1,0 +1,26 @@
+<crud-show [title]="'Просмотр роли'">
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Добавлено</td>
+                <td>{{ DataService?.item?.created_at_mysql }}</td>
+            </tr>
+            <tr>
+                <td>Название (EN)</td>
+                <td>{{ DataService?.item?.role_label_en }}</td>
+            </tr>
+            <tr>
+                <td>Название (RU)</td>
+                <td>{{ DataService?.item?.role_label_ru }}</td>
+            </tr>
+            <tr>
+                <td>URI</td>
+                <td>{{ DataService?.item?.role_name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <loader #loader></loader>
+
+</crud-show>
